@@ -7,14 +7,14 @@ group = 'ru.ElenaK'
 version = '1.0-SNAPSHOT'
 
 allure {
-    report {
+    report {// секция репорта
         version.set("2.19.0")
     }
-    adapter {
+    adapter {// отвечает за появление папки build - allure result
         aspectjWeaver.set(true)
         frameworks {
-            junit5 {
-                adapterVersion.set("2.19.0")
+            junit5 {//название фреймворка
+                adapterVersion.set("2.19.0")// версия интеграции фреймворка и аллюра
             }
         }
     }
