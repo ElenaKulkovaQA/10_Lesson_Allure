@@ -50,6 +50,7 @@ public class StepTest {
     @DisplayName("Web steps implementation")
     @Test
    public void webStepsTest () {
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         RepositoryPageObjects repoIssues = new RepositoryPageObjects();
 

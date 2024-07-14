@@ -1,4 +1,6 @@
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.MainPageObjects;
@@ -12,6 +14,8 @@ public class SelenidePageObjTest extends TestBase {
     @DisplayName("Проверяем, что в репозитории Selenide на вкладке Issues имеется таб 2775")
     @Test
     public void checkIssuesTestPO() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
         mainPage
                 .openPage()
                 .searchForRepository()

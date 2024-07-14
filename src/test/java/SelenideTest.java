@@ -14,6 +14,8 @@ public class SelenideTest extends TestBase {
     @Test
     public void checkIssuesTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+
+        SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://github.com/");
         $(".search-input-container").click();
         $("#query-builder-test").sendKeys("selenide/selenide");
