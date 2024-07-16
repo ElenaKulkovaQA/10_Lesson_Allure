@@ -1,10 +1,14 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RepositoryPageObjects;
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
@@ -27,20 +31,40 @@ public class StepTest {
     public void testLambdaStep() {
 
         step("Открываем главную страницу", () -> {
+            Allure.getLifecycle().addAttachment(
+                    "Исходники страницы",
+                    "text/html",
+                    "html",
+                    WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+            );
+
             open("https://github.com");
-        });
+        })
+        ;
+
         step("Ищем репозиторий " + REPOSITORY, () -> {
+
             $(".search-input-container").click();
             $("#query-builder-test").sendKeys("selenide/selenide");
             $("#query-builder-test").submit();
         });
+
         step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
             $(linkText(REPOSITORY)).click();
         });
+
         step("Открываем таб Issues", () -> {
             $("#issues-tab").click();
         });
+
         step("Проверяем наличие Issue с номером " + ISSUE, () -> {
+
+            Allure.getLifecycle().addAttachment(
+                    "Исходники страницы",
+                    "text/html",
+                    "html",
+                    WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+            );
             $(withText("#" + ISSUE)).should(Condition.exist);
         });
     }
