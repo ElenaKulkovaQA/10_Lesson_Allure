@@ -1,7 +1,5 @@
-import com.codeborne.selenide.Condition;
-//import io.qameta.allure.Attachment;
+
 import io.qameta.allure.Step;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
@@ -33,14 +31,5 @@ public class WebStep {
 
     }
 
-    @Step("Проверяем наличие Issue с номером {issue}")
-    public void shouldSeeIssueWithNumber(int issue) {
-        $(withText("#" + issue)).shouldBe(Condition.exist);
-    }
-
-//    @Attachment(value = "Screenshot", type = "image/png", fileExtension = "png")
-//    public byte[] takeScreenshot() {
-//        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-//  }
 
 }

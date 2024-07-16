@@ -1,5 +1,7 @@
 package pages;
+
 import org.junit.jupiter.api.DisplayName;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;

@@ -22,6 +22,6 @@ public class SelenidePageObjTest extends TestBase {
                 .navigateToIssuesPage();
 
         repoIssues
-                .issues();
+                .checkIssueTab();
     }
 }

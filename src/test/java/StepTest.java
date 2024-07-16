@@ -1,12 +1,11 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Allure;
-import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RepositoryPageObjects;
+
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -19,14 +18,13 @@ public class StepTest {
     private static final int ISSUE = 2775;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @DisplayName("Lambda steps implementation")
     @Test
     public void testLambdaStep() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем главную страницу", () -> {
             open("https://github.com");
@@ -49,8 +47,7 @@ public class StepTest {
 
     @DisplayName("Web steps implementation")
     @Test
-   public void webStepsTest () {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+    public void webStepsTest() {
 
         RepositoryPageObjects repoIssues = new RepositoryPageObjects();
 
@@ -60,10 +57,10 @@ public class StepTest {
         steps.searchForRepository(REPOSITORY);
         steps.clickOnRepositoryLink(REPOSITORY);
         steps.openIssuesTab();
-//        steps.shouldSeeIssueWithNumber(Integer.parseInt(REPOSITORY));
+
 
         repoIssues
-                .issues();
+                .checkIssueTab();
     }
 
 }

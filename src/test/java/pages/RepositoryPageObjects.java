@@ -9,10 +9,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class RepositoryPageObjects {
 
     @DisplayName("Находим таб 2775 и убеждаемся, что он видимый")
-    public void issues(){
+    public void checkIssueTab() {
         $(withText("#2775")).shouldBe(Condition.exist);
 
-//    public void issues(int issue) {
-//        $(withText("#" + issue)).should(Condition.exist);
     }
 }

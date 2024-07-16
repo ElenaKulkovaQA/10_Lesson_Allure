@@ -1,4 +1,6 @@
 .gradle
+.idea
+.github/workflows
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
