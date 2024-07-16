@@ -25,7 +25,6 @@ public class SelenideTest extends TestBase {
         $("#query-builder-test").sendKeys("selenide/selenide");
         $("#query-builder-test").submit();
         $(linkText("selenide/selenide")).click();
-
         $("#issues-tab").click();
         $(withText("#2775")).shouldBe(Condition.exist);
 

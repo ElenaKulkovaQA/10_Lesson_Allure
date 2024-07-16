@@ -31,13 +31,6 @@ public class StepTest {
     public void testLambdaStep() {
 
         step("Открываем главную страницу", () -> {
-            Allure.getLifecycle().addAttachment(
-                    "Исходники страницы",
-                    "text/html",
-                    "html",
-                    WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
-
             open("https://github.com");
         })
         ;
